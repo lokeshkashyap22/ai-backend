@@ -1,10 +1,13 @@
-import express, { Request, Response } from 'express';
+import express, { Request, Response } from "express";
+import connectDB from "./config/db";
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.get('/', (req: Request, res: Response) => {
-  res.send('Hello from Express + TypeScript!');
+connectDB();
+
+app.get("/", (req: Request, res: Response) => {
+  res.send("Hello from Backend!");
 });
 
 app.listen(port, () => {
